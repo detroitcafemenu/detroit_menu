@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>لوحة التحكم</title>
+</head>
+<body>
+
+<h2>لوحة التحكم</h2>
+
+
+
+  <input id="name" placeholder="اسم">
+<input id="price" placeholder="سعر">
+
+<select id="category">
+  <option value="hookah">أراكيل</option>
+  <option value="juice">عصائر</option>
+  <option value="hot">ساخن</option>
+  <option value="msr">غازيات</option>
+</select>
+
+<button onclick="add()">إضافة</button>
+
+<div id="list"></div>
+
+<script>
+
+function add(){
+let f = new FormData();
+f.append("name", name.value);
+f.append("price", price.value);
+f.append("category", category.value);
+
+fetch("add.php",{method:"POST",body:f})
+.then(res=>res.text().then(text=>alert("تمت الإضافة")));
+}
+
+
+</script>
+
+</body>
+</html>
