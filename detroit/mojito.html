@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الموهيتو | Detroit Cafe</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#fafafa,#f1f1f1);
+min-height:100vh;
+}
+
+/* HEADER */
+.header{
+text-align:center;
+padding:25px 10px;
+}
+
+.title{
+font-size:26px;
+font-weight:700;
+color:#120747;
+}
+
+/* BACK */
+.back{
+position:fixed;
+left:15px;
+top:15px;
+background:white;
+color:#120747;
+padding:8px 12px;
+border-radius:10px;
+font-size:14px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+z-index:1000;
+}
+
+/* GRID */
+.container{
+width:94%;
+max-width:1200px;
+margin:auto;
+padding:20px 0 40px;
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(10px);
+border-radius:16px;
+padding:14px 10px;
+text-align:center;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+transition:.25s ease;
+
+animation:show .4s ease;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.name{
+font-size:14px;
+font-weight:700;
+color:#120747;
+margin-bottom:6px;
+}
+
+.price{
+font-size:13px;
+font-weight:700;
+color:#082F6B;
+}
+
+/* ANIMATION */
+@keyframes show{
+from{opacity:0; transform:translateY(15px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* TABLET */
+@media(max-width:900px){
+.container{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.container{
+grid-template-columns:repeat(2,1fr); /* ⭐ مهم: 2 بكل صف */
+gap:10px;
+}
+
+.card{
+padding:12px 8px;
+border-radius:14px;
+}
+
+.name{
+font-size:13px;
+}
+
+.price{
+font-size:12px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← الرئيسية</a>
+
+<div class="header">
+<h1 class="title">🍹 الموهيتو</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+<div class="name">موهيتو ليمون نعناع</div>
+<div class="price">3500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو فراولة</div>
+<div class="price">3500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو بلو</div>
+<div class="price">3500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو تفاح اخضر</div>
+<div class="price">3500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو توت احمر</div>
+<div class="price">3500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو مانجو</div>
+<div class="price">4000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو اناناس</div>
+<div class="price">4000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو بينا كولادا</div>
+<div class="price">4000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو ريد مان</div>
+<div class="price">4000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو سانشاين</div>
+<div class="price">4500 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو كيوي ليمونيد</div>
+<div class="price">5000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو جامايكا</div>
+<div class="price">5000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو بلو بي</div>
+<div class="price">5000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو هافانا</div>
+<div class="price">5000 د.ع</div>
+</div>
+
+<div class="card">
+<div class="name">موهيتو ديترويت</div>
+<div class="price">6000 د.ع</div>
+</div>
+
+</div>
+
+</body>
+</html>

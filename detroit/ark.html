@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأراكيل</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Tahoma;
+background:#f5f5f5;
+}
+
+.header{
+text-align:center;
+padding:20px;
+background:#082F6B;
+color:white;
+font-size:24px;
+}
+
+.container{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.name{
+font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.price{
+color:#082F6B;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+button{
+margin:3px;
+padding:5px 10px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.del{
+background:red;
+color:white;
+}
+
+.edit{
+background:orange;
+color:white;
+}
+
+.back{
+display:inline-block;
+margin:10px;
+text-decoration:none;
+color:#082F6B;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">💨 الأراكيل</div>
+
+<a class="back" href="index.html">← رجوع</a>
+
+<div class="container">
+
+<div id="list">جاري التحميل...</div>
+
+</div>
+
+<script>
+
+function load(){
+
+fetch("get_menu.php?category=hookah")
+.then(r => r.json())
+.then(data => {
+
+let html = "";
+
+data.forEach(i => {
+html += `
+<div class="card">
+  <div class="name">${i.name}</div>
+  <div class="price">${i.price}</div>
+</div>
+`;
+});
+
+document.getElementById("list").innerHTML = html;
+
+});
+}
+
+load();
+
+
+// حذف
+function del(id){
+
+let f = new FormData();
+f.append("id", id);
+
+fetch("delete.php", {
+method:"POST",
+body:f
+})
+.then(()=>load());
+
+}
+
+
+// تعديل
+function edit(id){
+
+let name = prompt("اسم جديد:");
+let price = prompt("سعر جديد:");
+
+if(!name || !price) return;
+
+let f = new FormData();
+f.append("id", id);
+f.append("name", name);
+f.append("price", price);
+
+fetch("update.php", {
+method:"POST",
+body:f
+})
+.then(()=>load());
+
+}
+
+</script>
+
+</body>
+</html>
